@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/readingList")
 public class ReadingListController {
 
-    private static final String reader = "craig";
+    private static final String reader = "ramin";
 
     private ReadingListRepository readingListRepository;
 
