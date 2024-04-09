@@ -2,32 +2,33 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f2f3f5; /* Soft grayish-blue background */
+    background-color: #f9f9f9;
 }
 
 #container {
     max-width: 800px;
     margin: 20px auto;
-    background-color: #ffffff; /* White container */
+    background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+h1, h2 {
     margin-top: 0;
-    color: #333333; /* Dark gray for headings */
+    color: #333;
 }
 
 hr {
-    border: 0;
-    border-top: 1px solid #cccccc; /* Light gray horizontal rule */
+    border: none;
+    border-top: 1px solid #ccc;
     margin: 20px 0;
 }
 
 form label {
     font-weight: bold;
-    color: #333333; /* Dark gray for labels */
+    color: #333;
+    display: block;
 }
 
 form input[type="text"],
@@ -35,39 +36,66 @@ form textarea {
     width: 100%;
     padding: 8px;
     margin: 6px 0;
-    border: 1px solid #cccccc; /* Light gray border */
+    border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
 }
 
 form input[type="submit"] {
-    background-color: #4CAF50; /* Green submit button */
+    background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 form input[type="submit"]:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #45a049;
 }
 
-.bookHeadline {
-    font-weight: bold;
-}
-
-.bookDescription {
+.book {
     margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
 }
 
-.bookDescription span {
-    display: block;
-    margin-top: 5px;
+.book:hover {
+    transform: scale(1.02);
 }
 
-.noDescription {
+.bookTitle {
+    color: #333;
+}
+
+.bookAuthor {
     font-style: italic;
-    color: #777777; /* Gray for no description text */
+    color: #666;
 }
 
+.bookISBN {
+    color: #444;
+    margin-bottom: 5px;
+}
+
+.bookDescription, .noDescription {
+    color: #777;
+}
+
+
+@keyframes bookScale {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.book {
+    transition: transform 0.3s ease;
+}
+
+.book:hover {
+    animation: bookScale 0.5s ease-in-out;
+}

@@ -1,4 +1,4 @@
-package com.company.readinglist;
+package com.company.readinglist.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

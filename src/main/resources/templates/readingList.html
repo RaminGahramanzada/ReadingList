@@ -8,25 +8,21 @@
 </head>
 <body>
 <div id="container">
-    <h2>Your Reading List</h2>
-    <div th:unless="${#lists.isEmpty(books)}">
-        <dl th:each="book : ${books}">
-            <dt class="bookHeadline">
-                <span th:text="${book.title}">Title</span> by
-                <span th:text="${book.author}">Author</span>
-                (ISBN: <span th:text="${book.isbn}">ISBN</span>)
-            </dt>
-            <dd class="bookDescription">
-                <span th:if="${book.description}" th:text="${book.description}"></span>
-                <span th:if="${book.description eq null}" class="noDescription">No description available</span>
-            </dd>
-        </dl>
+    <h1>Your Reading List</h1>
+    <div id="bookList" th:unless="${#lists.isEmpty(books)}">
+        <div class="book" th:each="book : ${books}">
+            <h2 class="bookTitle" th:text="${book.title}">Title</h2>
+            <p class="bookAuthor" th:text="${book.author}">Author</p>
+            <p class="bookISBN">ISBN: <span th:text="${book.isbn}">ISBN</span></p>
+            <p class="bookDescription" th:text="${book.description}" th:if="${book.description}"></p>
+            <p class="noDescription" th:if="${book.description eq null}">No description available</p>
+        </div>
     </div>
-    <div th:if="${#lists.isEmpty(books)}">
-        <p>You have no books in your book list</p>
+    <div id="emptyList" th:if="${#lists.isEmpty(books)}">
+        <p>You have no books in your reading list.</p>
     </div>
     <hr>
-    <h3>Add a book</h3>
+    <h2>Add a Book</h2>
     <form method="POST">
         <label for="title">Title:</label>
         <input type="text" name="title" size="50"><br>
